@@ -78,5 +78,14 @@
         </div>
       </div>
     </div>
+       	<?php echo javascript_include_tag('/direct/ext/adapter/ext/ext-base') ?>
+  	<?php echo javascript_include_tag('/direct/ext/ext-all-debug') ?>
+
+
+   	<script type="text/javascript">
+    	Ext.Direct.addProvider( Ext.app.EXTDIRECT_API );
+        </script>
+
+
   </body>
 </html>
