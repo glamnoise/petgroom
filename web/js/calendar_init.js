@@ -100,7 +100,7 @@ jQuery(document).ready(function(){
  */
 var cal_manager  = {
 
-	displayEventEditor : function( o ){
+		displayEventEditor : function( o ){
 
 		if( typeof o.event_object === "undefined" )
 		{
@@ -115,13 +115,14 @@ var cal_manager  = {
 			jQuery("#eventform").data( "current_event", o.event_object );
 		}
 
+
 		jQuery("#event_wrapper").dialog("open");
 	},
 
-	populateEventForm_new: function( o ){
+	populateEventForm_new: function(){
 
-		jQuery("#eventform_start").val( cal_manager.date_to_mysqlfriendlystring( o.start ) );
-		jQuery("#eventform_end").val( cal_manager.date_to_mysqlfriendlystring( o.end ) );
+		jQuery("#appointment_start").val( cal_manager.date_to_mysqlfriendlystring( o.start ) );
+		jQuery("#appointment_end").val( cal_manager.date_to_mysqlfriendlystring( o.end ) );
 	},
 
 	handle_save_button_click : function(){
@@ -130,10 +131,10 @@ var cal_manager  = {
 		if( jQuery("#eventform_id").val() === "" )
 		{
 			var param = {
-				"start" : jQuery("#eventform_start").val(),
-				"end" : jQuery("#eventform_end").val(),
-				"title" : jQuery("#eventform_title").val(),
-				"description" : jQuery("#eventform_description").val()
+				"start" : jQuery("#appointment_start").val(),
+				"end" : jQuery("#appointment_end").val(),
+				"title" : jQuery("#appointment_title").val(),
+				"description" : jQuery("#appointment_info").val()
 			};
 
 			RPCTEST.event.directNew( param, function(result, e){
@@ -148,17 +149,17 @@ var cal_manager  = {
 				{
 					console.log('called');
 
-					var date_start = cal_manager.mysql_date_string_to_js_date( jQuery("#eventform_start").val() );
-					var date_end = cal_manager.mysql_date_string_to_js_date( jQuery("#eventform_end").val() );
+					var date_start = cal_manager.mysql_date_string_to_js_date( jQuery("#appointment_start").val() );
+					var date_end = cal_manager.mysql_date_string_to_js_date( jQuery("#appointment_end").val() );
 
 					//Create the new event
 					jQuery('#main_calendar').fullCalendar('renderEvent', {
 							id : result,
-							title: jQuery("#eventform_title").val(),
+							title: jQuery("#appointment_title").val(),
 							start: date_start,
 							end: date_end,
-							allDay: jQuery("#eventform_isallday").attr('checked'),
-							description : jQuery("#eventform_description").val()
+							allDay: jQuery("#appointment_isallday").attr('checked'),
+							description : jQuery("#appointment_info").val()
 						}, true // make the event "stick"
 					);
 

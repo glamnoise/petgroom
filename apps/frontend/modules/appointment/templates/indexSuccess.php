@@ -27,12 +27,12 @@ var init_event = [
 <div id="event_wrapper" style="display:none">
 <form id="eventform" action="" method="" accept-charset="utf-8" onsubmit="return false;">
 	<input type="hidden" id="eventform_id" name="eventform_id" value="" />
-	<p><label for="eventform_title">Title</label><input type="text" name="eventform_title" id="eventform_title" /></p>
-	<p><label for="eventform_start">Start</label><input type="text" name="eventform_start" id="eventform_start" /></p>
-	<p><label for="eventform_end">End</label><input type="text" name="eventform_end" id="eventform_end" /></p>
+	<p><label for="appointment_title">Title</label><input type="text" name="appointment_title" id="appointment_title" /></p>
+	<p><label for="appointment_start">Start</label><input type="text" name="appointment_start" id="appointment_start" /></p>
+	<p><label for="appointment_end">End</label><input type="text" name="appointment_end" id="appointment_end" /></p>
 	<p><label for="eventform_isallday">All day event ?</label><input type="checkbox" name="eventform_isallday" id="eventform_isallday" /></p>
-	<p><label for="eventform_description">Content</label></p>
-	<p><textarea id="eventform_description" name="eventform_description" rows="5" cols="10"></textarea></p>
+	<p><label for="appointment_info">Content</label></p>
+	<p><textarea id="appointment_info" name="appointment_info" rows="5" cols="10"></textarea></p>
 </form>
 </div>
 
