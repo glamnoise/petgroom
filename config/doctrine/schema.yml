@@ -1,0 +1,42 @@
+Breed:
+  columns:
+    id: { primary: true, type: integer, autoincrement: true }
+    name: { type: string(255) }
+User:
+  columns:
+    id: { primary: true, type: integer, autoincrement: true }
+    name: { type: string(255) }
+    second_name: { type: string(255) }
+    email: { type: string(255), notnull: true }
+    birthday: { type: timestamp }
+    gender: { type: enum, length: 6, values: ['Male', 'Female'] }
+    address: { type: string(255) }
+    city: { type: string(255) }
+    cap: { type: string(10) }
+    phone: { type: string(255) }
+    cell: { type: string(255) }
+    info: { type: string(2500) }
+Dog:
+  columns:
+    id: { primary: true, type: integer, autoincrement: true }
+    name: { type: string(255) }
+    photo: { type: string(255) }
+    gender: { type: enum, length: 6, values: ['Male', 'Female']}
+    birthday: { type: timestamp }
+    user_id: { type: integer }
+    breed_id: { type: integer }
+  relations:
+    User: {  local: user_id, foreign: id }
+    Breed: {  local: breed_id, foreign: id }
+Appointment:
+  columns:
+    id: { primary: true, type: integer, autoincrement: true }
+    start: { type: timestamp, notnull: true }
+    end: { type: timestamp, notnull: true }
+    title: { type: string(255) }
+    info: { type: string(2500) }
+    dog_id: { type: integer }
+    user_id: { type: integer }
+  relations:
+    Dog: {  local: dog_id, foreign: id }
+    User: {  local: user_id, foreign: id }
